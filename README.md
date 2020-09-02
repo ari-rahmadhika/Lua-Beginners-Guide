@@ -98,7 +98,7 @@ end
 umur = 20
 if umur > 18 then
   print("di atas 18 tahun")
-elseif age == 18 then
+elseif umur == 18 then
   print("tepat 18 tahun")
 else
   print("di bawah 18 tahun")
@@ -130,7 +130,7 @@ end
 
 ```
 
-**Kombinasi IF**
+**Kombinasi If**
 ```lua
 local x = 10
 if x == 10 and x < 0 then --keduanya harus bernilai true
@@ -141,7 +141,7 @@ end
 --hasil: hai
 ```
 
-**IF bercabang**
+**If bercabang**
 
 ```lua
 local x = 10
@@ -159,8 +159,8 @@ end
 Kita juga bisa membalikkan nilai dengan kata kunci **not**
 ```lua
 local x = 10
-if not x == 10 then
-  print("halo")
+if not x == 10 then -- false
+  print("halo") -- tidak dieksekusi
 end
 ```
 
