@@ -17,11 +17,11 @@ print("hello") --ini komentar juga
 
 
 ```lua
--- Tipe yang berbeda
+-- Tipenya berbeda beda
 local x = 10 --number
-local name = "john doe" --string
-local isAlive = false -- boolean
-local a = nil --Tidak ada nilai 
+local nama = "Roni" --string
+local nyala = false -- boolean
+local a = nil --tidak ada nilai 
 ```
 
 **Number**
@@ -32,7 +32,7 @@ operator
 - \* perkalian
 - / pembagian
 - ^ perpangkatan
-- % modulus
+- % modulus (sisa pembagian)
 
 ```lua
 -- contoh
@@ -68,40 +68,40 @@ print(level) -- 2
 **String**
 ```lua
 -- menggabungkan string
-local phrase = "My name is "
-local name = "John Doe"
-print(phase .. name) --My name is John Doe
+local kalimat = "Namaku adalah "
+local nama = "Roni"
+print(kalimat .. nama) --Namaku adalah Roni
 
 -- string dan number
-local age = 12
-local name = "Billy"
-print(name .. " is " .. age .. " years old")
+local umur = 12
+local nama = "Irfan"
+print(nama .. " berumur " .. age .. " tahun")
 ````
 
 **Boolean**
 ```lua
-local isAlive = true
-print(isAlive) --true
-isAlive = false
-print(isAlive) --false
+local nyala = true
+print(nyala) --true
+nyala = false
+print(nyala) --false
 ```
 
 ## Pengkondisian
 ```lua
 --Membandingkan angka
-local age = 10
-if age < 18 then
-  print("over 18") --tidak akan dieksekusi
+local umur = 10
+if umur > 18 then
+  print("di atas 18 tahun") --tidak akan dieksekusi
 end
 
 --elseif dan else
-age = 20
-if age > 18 then
-  print("dog")
+umur = 20
+if umur > 18 then
+  print("di atas 18 tahun")
 elseif age == 18 then
-  print("cat")
+  print("tepat 18 tahun")
 else
-  print("mouse")
+  print("di bawah 18 tahun")
 end
 ```
 
@@ -115,42 +115,42 @@ end
 
 ```lua
 --perbandingan boolean
-local isAlive = true
-if isAlive then
-    print("dog")
+local nyala = true
+if nyala then
+    print("Akhirnya nyala!")
 end
 
 --perbandingan string
-local name = "billy"
-if name == "Billy" then --false
-  print("Billy")
-elseif name == "billy" then --true
-  print("billy")
+local nama = "irfan"
+if nama == "Irfan" then --false
+  print("Irfan")
+elseif nama == "irfan" then --true
+  print("irfan")
 end
 
 ```
 
-**Kombinasi Statement**
+**Kombinasi IF**
 ```lua
 local x = 10
-if x == 10 and x < 0 then --keduanya bernilai true
-  print("dog")
-elseif x == 100 or x < 0 then --satu atau lebih bernilai true
-  print("cat")
+if x == 10 and x < 0 then --keduanya harus bernilai true
+  print("halo")
+elseif x == 100 or x > 0 then --salah satunya harus bernilai true
+  print("hai")
 end
---hasil: cat
+--hasil: hai
 ```
 
-**Statement bercabang**
+**IF bercabang**
 
 ```lua
 local x = 10
-local isAlive = true
+local nyala = true
 if x==10 then
-  if isAlive == true then
-    print("dog")
+  if nyala == true then
+    print("halo")
   else
-    print("cat")
+    print("hai")
   end
 end
 ```
@@ -160,51 +160,51 @@ Kita juga bisa membalikkan nilai dengan kata kunci **not**
 ```lua
 local x = 10
 if not x == 10 then
-  print("here")
+  print("halo")
 end
 ```
 
 ## Function
 ```lua
-function printTax(price)
-  local tax = price * 0.21
-  print("tax:" .. tax)
+function tambahDua(angka)
+  local hasil = angka + 2
+  print("hasil:" .. hasil)
 end
 
-printTax(200)
+tambahDua(200)
 ```
 
 ```lua
 --function yang mengembalikan/menghasilkan nilai
-function calculateTax(price)
-  return price * 0.21
+function tambahDua(angka)
+  return angka + 2
 end
 
-local result = calculateTax(100)
-print(result)
+local hasil = tambahDua(100)
+print(hasil)
 
 --memanggil function tapi kali ini dengan variabel
-local bread = 130
-local milk = 110
+local angka1 = 130
+local angka2 = 110
 
-local breadTax = calculateTax(bread) --27.3
-local milkTax = calculateTax(milk) --23.1
+local tambahAngka1 = tambahDua(angka1) --132
+local tambahAngka2 = tambahDua(angka2) --112
 
-print("Bread Tax = " .. breadTax) 
-print("Milk Tax = " .. milkTax) 
+print("hasil angka1 = " .. tambahAngka1) 
+print("hasil angka2 = " .. tambahAngka2) 
 ```
 
 ```lua
 --parameter lebih dari satu
-function displayInfo(name, age, country)
-  print(name .. " is " .. age .. " years old and is from " .. country)
+function tampilkanInfo(nama, umur, negara)
+  print(nama .. " berumur " .. umur .. " tahun dan berasal dari " .. negara)
 end
 
-displayInfo("Billy", 12, "Jupiter")
+tampilkanInfo("Irfan", 12, "Indonesia")
 ```
 
 ## Scope
-Variabel memiliki lingkup/scope yang berbeda. Jika sudah sampai pada akhir scope, variabel tidak dpaat diakses lagi
+Variabel memiliki lingkup/scope yang berbeda. Dengan keyword local, variabel tidak bisa diakses di luar scope nya
 ```lua
 function foo()
   local a = 10
@@ -214,8 +214,8 @@ print(a) --nil
 ```
 
 ```lua
-local isAlive = true
-if isAlive then
+local nyala = true
+if nyala then
   local a = 10
 end
 
@@ -224,12 +224,12 @@ print(a) --nil
 
 **Variabel Global**
 ```lua
-local _G.myValue = 69
+local _G.nilaiSaya = 69
 --Melakukan seperti ini terkadang bukan hal yang baik
 ```
 
-## Perulangan
-There is a few different ways you can do a loop in lua
+## Perulangan (Loop)
+Ada banyak cara kita melakukan loop/perulangan di Lua
 ```lua
 --while loop
 local i = 0
@@ -239,7 +239,7 @@ while i <= 10 do
   count = count + 1
 end
 
-print("count is " .. count) --count is 7
+print("count berjumlah " .. count) --count berjumlah 7
 
 
 --for loop
@@ -247,13 +247,13 @@ count = 0
 for i=1, 5 do
   count = count + 1
 end
-print("count is " .. count)
+print("count berjumlah " .. count)
 
 ```
 
 **Infinite Loops**
 ```lua
---infinite loop will never end
+--infinite loop tidak akan berakhir
 local i = 0
 while i >= 0 do
  i = i + 1
@@ -261,7 +261,7 @@ while i >= 0 do
 end
 ```
 
-**Nested Loops**
+**Nested Loops (Loop bercabang)**
 ```lua
 local count = 0
 for a=1, 10 do
@@ -273,168 +273,167 @@ print(count) -- 100
 ```
 
 
-## Tables
+## Table
 ```lua
---basic table
-local colors = { "red", "green", "blue" }
+--Dasar table
+local warna = { "merah", "hijau", "biru" }
 
-print(colors[1]) --red
-print(colors[2]) --green
-print(colors[3]) --blue
+print(warna[1]) --merah
+print(warna[2]) --hijau
+print(warna[3]) --biru
 
---using a loop to iterate though your table
-for i=1, #colors do
-  print(colors[i])
+--menggunakan loop untuk melakukan iterasi terhadap table
+for i=1, #warna do
+  print(warna[i])
 end
 ```
 
-**Table Manipulation**
+**Manipulasi Table**
 ```lua
 --insert
-local colors = { "red", "green", "blue" }
-table.insert(colors, "orange")
-local index = #colors --4 (this is the last index in the table)
-print(colors[index]) --orange
+local warna = { "merah", "hijau", "biru" }
+table.insert(warna, "jingga")
+local index = #warna --4 (ini adalah index terakhir pada table, atau jumlah keseluruhan index pada table)
+print(colors[index]) --jingga
 ```
 
 ```lua
---insert at index
-local colors = { "red", "green", "blue" }
-table.insert(colors, 2, "pink")
-for i=1, #colors do
-  print(colors[i])
+--insert pada index tertentu
+local warna = { "merah", "hijau", "biru" }
+table.insert(warna, 2, "pink")
+for i=1, #warna do
+  print(warna[i])
 end
---red, pink, green, blue
+--merah, pink, hijau, biru
 ```
 
 ```lua
 --remove 
-local colors = { "red", "green", "blue" }
-table.remove(colors, 1)
-for i=1, #colors do
-  print(colors[i])
+local warna = { "merah", "hijau", "biru" }
+table.remove(warna, 1)
+for i=1, #warna do
+  print(warna[i])
 end
--- "green", "blue"
+-- "hijau", "biru"
 ```
 
 
-**2 Dimensional Table**
+**Table dua dimensi**
 ```lua
---tables within tables
+--table di dalam table
 local data = {
-  { "billy", 12 },
-  { "john", 20 },
+  { "irfan", 12 },
+  { "roni", 20 },
   { "andy", 65 }
 }
 
 for a=1, #data do
-  print(data[a][1] .. " is " .. data[a][2] .. " years old")
+  print(data[a][1] .. " berumur " .. data[a][2] .. " tahun")
 end
 ```
 
 
-**Key Tables**
+**Key pada table**
 
-2 dimensional tables are not suited to data with different types, instead uses keys for tables
 ```lua
-local teams = {
-    ["teamA"] = 12,
-    ["teamB"] = 15
+local tim = {
+    ["timA"] = 12,
+    ["timB"] = 15
 }
 
-print(teams["teamA"]) -- 12
+print(tim["timA"]) -- 12
 
-for key,value in pairs(teams) do
+for key,value in pairs(tim) do
   print(key .. ":" .. value)
 end
 ```
 
 ```lua
---insert into key table
-teams["teamC"] = 1
+--memasukkan key baru ke dalam table
+tim["timC"] = 1
 ```
 
 ```lua
---remove key from table
-teams["teamA"] = nil
+--menghapus key dari table
+tim["timA"] = nil
 ```
 
 
-**Returning a Table from a Function**
+**Me-return table dari function**
 
-This can be used to return multiple values from a functions
+Hal ini bisa digunakan untuk me-return nilai yang banyak (lebih dari satu)
 ```lua
-function getTeamScores()
-  local scores = {
-    ["teamA"] = 12,
-    ["teamB"] = 15
+function dapatkanSkorTim()
+  local skor = {
+    ["timA"] = 12,
+    ["timB"] = 15
   }
-  return scores
+  return skor
 end
 
-local scores = getTeamScores()
+local skor = dapatkanSkorTim()
 local total = 0
-for key, val in pairs(scores) do
+for key, val in pairs(skor) do
   total += val
 end
-print("Total score of all teams:" .. total)
+print("Total skor dari semua tim adalah:" .. total)
 ```
 
 
 ## Math
-The math class has a number of functions for dealing with numbers. You may not need them but here is some of the more useful one functions:
+Kelas math memiliki berbagai macam function yang bisa kamu gunakan untuk bermain dengan angka. Mungkin ini tidak terlalu penting, tapi ini dia daftar function nya:
 
-More: [Wiki](http://lua-users.org/wiki/MathLibraryTutorial)
+Lebih banyak: [Wiki](http://lua-users.org/wiki/MathLibraryTutorial)
 
-* abs (absolute value)
+* abs (nilai absolut)
   ```lua
   local x = -10
-  print(math.abs(x)) --result: 10
+  print(math.abs(x)) --hasil: 10
   local a = 10
-  print(math.abs(a)) --result: 10
+  print(math.abs(a)) --hasil: 10
   ```
-* ceil (round up decimal value)
+* ceil (membulatkan ke angka tertinggi)
   ```lua
   local x = 1.2
-  print(math.ceil(x)) --result: 2
+  print(math.ceil(x)) --hasil: 2
   ```
-* deg (Convert value from radians to degrees)
+* deg (mengubah dari radian ke derajat)
   ```lua
-  print(math.deg(math.pi)) -- result: 180
+  print(math.deg(math.pi)) -- hasil: 180
   ```
-* floor (round down decimal value)
+* floor (membulatkan ke angka terendah)
   ```lua
   local x = 1.2
-  print(math.floor(x)) --result: 1
+  print(math.floor(x)) --hasil: 1
   ```
-* pi (constant value of pi)
+* pi (nilai konstan dari phi)
   ```lua
   print(math.pi) --3.1415926535898
   3.1415926535898
   ```
-* rad (Convert value from degrees to radians)
+* rad (mengubah dari derajat ke radian)
   ```lua
-  print(math.rad(180)) --result: 3.1415926535898
+  print(math.rad(180)) --hasil: 3.1415926535898
   ```
-* random (random number generation)
+* random (menghasilkan angka random (acak))
   ```lua
-  --random value between 0 tand 1
-  print(math.random()) --result: 0.0012512588885159
+  --angka random dari 0 - 1
+  print(math.random()) --hasil: 0.0012512588885159
 
-  --random integer value from 1 to 100 (both inclusive)
-  print(math.random(100)) --result: 20
+  --angka random dari 1 - 100
+  print(math.random(100)) --hasil: 20
 
-  --random integer value from 20 to 100 (both inclusive)
-  print(math.random(20, 100)) --result: 54
+  --angka random dari 20 - 100
+  print(math.random(20, 100)) --hasil: 54
   ```
-* sqrt (Square root of a number)
+* sqrt (Akar dari sebuah bilangan)
   ```lua
-  print(math.sqrt(100)) --result: 10
+  print(math.sqrt(100)) --hasil: 10
   ```
 
-## Modules
+## Modul
 
-Include code other files
+Memasukkan/mengimpor kode dari file lain
 ```lua
-require("otherfile")
+require("filelain")
 ```
