@@ -1,41 +1,41 @@
-# Lua - Beginners Guide
+# Lua - Panduan Dasar (Bahasa Indonesia)
 
-## Printing
+## Menampilkan tulisan
 ```lua
 print("Hello World")
 ```
 
-## Comments
+## Komentar
 ```lua
---this is a comment
-print("hello") --this is another comment
--- the next line will not do anything because it is commented out
+--ini adalah komentar
+print("hello") --ini komentar juga
+-- baris berikutnya tidak akan dijalankan karena dia berupa komentar
 --print("world") 
 ```
 
-## Variables
+## Variabel
 
 
 ```lua
--- Different types
+-- Tipe yang berbeda
 local x = 10 --number
 local name = "john doe" --string
 local isAlive = false -- boolean
-local a = nil --no value or invalid value
+local a = nil --Tidak ada nilai 
 ```
 
-**Numbers**
+**Number**
 
-operators
-- \+ addition
-- \- minus
-- \* multiply
-- / divide
-- ^ power
+operator
+- \+ pertambahan
+- \- pengurangan
+- \* perkalian
+- / pembagian
+- ^ perpangkatan
 - % modulus
 
 ```lua
--- examples
+-- contoh
 local a = 1
 local b = 2
 local c = a + b
@@ -65,14 +65,14 @@ level = level + 1
 print(level) -- 2
 ```
 
-**Strings**
+**String**
 ```lua
--- concatenate strings
+-- menggabungkan string
 local phrase = "My name is "
 local name = "John Doe"
 print(phase .. name) --My name is John Doe
 
--- strings and numbers
+-- string dan number
 local age = 12
 local name = "Billy"
 print(name .. " is " .. age .. " years old")
@@ -86,15 +86,15 @@ isAlive = false
 print(isAlive) --false
 ```
 
-## Conditional Statements
+## Pengkondisian
 ```lua
---number comparisions
+--Membandingkan angka
 local age = 10
 if age < 18 then
-  print("over 18") --this will not be executed
+  print("over 18") --tidak akan dieksekusi
 end
 
---elseif and else
+--elseif dan else
 age = 20
 if age > 18 then
   print("dog")
@@ -105,22 +105,22 @@ else
 end
 ```
 
-**Comparison Operators**
-- == equality
-- < less than
-- \> greater than
-- <= less than or equal to
-- \>= greater than or equal to
-- ~= inequality
+**Operator Perbandingan**
+- == sama dengan
+- < lebih kecil dari
+- \> lebih besar dari
+- <= lebih kecil dari atau sama dengan
+- \>= lebih besar dari atau sama dengan
+- ~= tidak sama dengan
 
 ```lua
---boolean comparision
+--perbandingan boolean
 local isAlive = true
 if isAlive then
     print("dog")
 end
 
---string comparisions
+--perbandingan string
 local name = "billy"
 if name == "Billy" then --false
   print("Billy")
@@ -130,18 +130,18 @@ end
 
 ```
 
-**Combining Statements**
+**Kombinasi Statement**
 ```lua
 local x = 10
-if x == 10 and x < 0 then --both are true
+if x == 10 and x < 0 then --keduanya bernilai true
   print("dog")
-elseif x == 100 or x < 0 then --1 or more are true
+elseif x == 100 or x < 0 then --satu atau lebih bernilai true
   print("cat")
 end
---result: cat
+--hasil: cat
 ```
 
-**Nested statements**
+**Statement bercabang**
 
 ```lua
 local x = 10
@@ -154,9 +154,9 @@ if x==10 then
   end
 end
 ```
-**Invert Value**
+**Membalikkan Nilai**
 
-you can also invert a value with the **not** keyword
+Kita juga bisa membalikkan nilai dengan kata kunci **not**
 ```lua
 local x = 10
 if not x == 10 then
@@ -164,7 +164,7 @@ if not x == 10 then
 end
 ```
 
-## Functions
+## Function
 ```lua
 function printTax(price)
   local tax = price * 0.21
@@ -175,7 +175,7 @@ printTax(200)
 ```
 
 ```lua
---function that returns a value
+--function yang mengembalikan/menghasilkan nilai
 function calculateTax(price)
   return price * 0.21
 end
@@ -183,7 +183,7 @@ end
 local result = calculateTax(100)
 print(result)
 
---reusing the function but this time using variables
+--memanggil function tapi kali ini dengan variabel
 local bread = 130
 local milk = 110
 
@@ -195,7 +195,7 @@ print("Milk Tax = " .. milkTax)
 ```
 
 ```lua
---multiple parameters
+--parameter lebih dari satu
 function displayInfo(name, age, country)
   print(name .. " is " .. age .. " years old and is from " .. country)
 end
@@ -204,7 +204,7 @@ displayInfo("Billy", 12, "Jupiter")
 ```
 
 ## Scope
-Variables have different scopes. Once the end of the scope is reached the values in that scope are no longer accessable
+Variabel memiliki lingkup/scope yang berbeda. Jika sudah sampai pada akhir scope, variabel tidak dpaat diakses lagi
 ```lua
 function foo()
   local a = 10
@@ -222,13 +222,13 @@ end
 print(a) --nil
 ```
 
-**Global Variable**
+**Variabel Global**
 ```lua
 local _G.myValue = 69
---doing this can sometimes be bad practice
+--Melakukan seperti ini terkadang bukan hal yang baik
 ```
 
-## Loops
+## Perulangan
 There is a few different ways you can do a loop in lua
 ```lua
 --while loop
